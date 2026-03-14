@@ -1,4 +1,4 @@
-INSERT INTO dbo.Student(Student_ID, StudentName, StudentBirth, IsMale) VALUES (1, 'A', 2000-10-01, null),
+INSERT INTO dbo.Student(Student_ID, StudentName, StudentBirth, IsMale) VALUES (1, 'A', '2000-10-01', null),
                                                                               (2, 'B', '2000-12-01', NULL),
                                                                               (3, 'C', '2000-10-10', 0),
                                                                               (4, 'D', '2000-08-20', 1),
