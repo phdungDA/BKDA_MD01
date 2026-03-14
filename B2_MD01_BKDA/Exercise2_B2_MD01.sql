@@ -15,3 +15,9 @@ INSERT Into dbo.Assigned(Student_ID, Course_ID, Note) VALUES (1, 1, null),
                                                              (1,2, 'Test'),
                                                              (2,1, null),
                                                              (2,3, null);
+
+--Test input data
+SELECT * FROM dbo.Student
+SELECT * FROM dbo.Professor
+SELECT * FROM dbo.Course
+SELECT * FROM dbo.Assigned
