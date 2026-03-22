@@ -1,0 +1,37 @@
+--Exercise 1: Viết truy vấn để lấy thông tin khách hàng có tên đầy đủ là Hannah E Long, Mason D Roberts, Jennifer S Cooper. 
+--Sắp xếp kết quả tăng dần theo BirthDate.
+
+SELECT *
+from DimCustomer
+WHERE CONCAT(FirstName, ' ', MiddleName, ' ', LastName) = 'Hannah E Long'
+OR CONCAT(FirstName, ' ', MiddleName, ' ', LastName) = 'Mason D Roberts'
+OR CONCAT(FirstName, ' ', MiddleName, ' ', LastName) = 'Jennifer S Cooper'
+ORDER BY BirthDate
+
+--Exercise 2: Viết truy vấn thống tin về OrderDate, SalesOrderNumber, ProductKey, UnitPrice, OrderQuantity của bản ghi có ResellerKey = 322 trong bảng FactResellerSales. 
+
+SELECT OrderDate, SalesOrderNumber, ProductKey,
+        UnitPrice, OrderQuantity
+from FactResellerSales
+WHERE ResellerKey = '322'
+
+--Exercise 3: Viết truy vấn để lấy thông tin về chỉ số tài chính doanh nghiệp (bảng FactFinance) mà có AccountKey = 61. 
+
+SELECT * 
+from FactFinance
+WHERE AccountKey = '61'
+
+--Exercise 4: Hãy truy vấn ra những shift buổi sáng mà nhận nhiều hơn hoặc bằng 400 cuộc gọi trong bảng FactCallCenter. Sắp xếp cột Calls từ lớn xuống bé. 
+
+SELECT *
+from FactCallCenter
+WHERE Shift = 'AM'
+and Calls >= 400
+ORDER BY Calls DESC
+
+--Exercise 5: Truy vấn trả về duy nhất cột những ngày mà nhận được IssuesRaised lớn hơn 2 và AverageTimePerIssue lớn hơn 60 trong bảng FactCallCenter
+
+SELECT date
+from FactCallCenter
+WHERE IssuesRaised > 2
+and AverageTimePerIssue >60
