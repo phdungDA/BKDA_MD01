@@ -35,3 +35,21 @@ SELECT date
 from FactCallCenter
 WHERE IssuesRaised > 2
 and AverageTimePerIssue >60
+
+/*Exercise 6: Viết truy vấn trả về EnglishProductName, ProductKey, ListPrice và StandardCost của sản phẩm đáp ứng đủ các tiêu chí sau trong bảng DimProduct:
+        ListPrice bé hơn 50 
+        Màu khác màu đen*/
+
+SELECT EnglishProductName, ProductKey, ListPrice, StandardCost
+From DimProduct
+WHERE ListPrice < 50
+and Color != 'Black'
+
+/*Viết truy vấn trả về thông tin của nhân viên đáp ứng đầy đủ các tiêu chí sau trong bảng DimEmployee: 
+        Nhân viên có title là Sales Representative 
+        Có SalesTerritoryKey bằng 10 hoặc 1*/
+
+SELECT *
+from DimEmployee
+WHERE Title LIKE '%Sales Representative%'
+and (SalesTerritoryKey = '10' or SalesTerritoryKey = '1')
