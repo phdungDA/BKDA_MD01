@@ -21,12 +21,16 @@ WHERE GeographyKey in (
 
 --Exercise 2: Trả về thông tin của top 5 sản phẩm bán chạy nhất màu đỏ có ListPrice > 500
 
-SELECT top 5 * 
-from DimProduct as d
-WHERE Color = 'Red'
-and ListPrice > 500
-ORDER BY (
-    select SUM(OrderQuantity)
-    from FactInternetSales as f
-    WHERE f.ProductKey = d.ProductKey
-) DESC
+SELECT *
+FROM DimProduct
+WHERE ProductKey IN (
+        SELECT TOP 5 f.ProductKey
+        FROM FactInternetSales f
+        WHERE f.ProductKey IN (
+            SELECT p.ProductKey 
+            FROM DimProduct p 
+            WHERE p.Color = 'Red' AND p.ListPrice > 500
+        )
+        GROUP BY f.ProductKey
+        ORDER BY SUM(f.OrderQuantity) DESC
+    )
