@@ -6,7 +6,8 @@ SELECT ProductKey,
 (ListPrice - DealerPrice)*1.1 as GapPrice
 from DimProduct
 WHERE ListPrice is not null 
-and Color is not null
+AND DealerPrice is not null
+and Color != 'NA'
 ORDER BY GapPrice DESC
 
 /*Exercise 2: Đối với các đơn hàng giao đúng hạn được đặt vào năm 2012, 2013 của khách hàng doanh nghiệp, thực hiện tính toán các chỉ số sau: 
