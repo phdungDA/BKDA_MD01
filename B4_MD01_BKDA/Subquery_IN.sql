@@ -23,13 +23,8 @@ WHERE GeographyKey in (
 
 SELECT top 5 * 
 from DimProduct as d
-WHERE
-Color = 'Red'
+WHERE Color = 'Red'
 and ListPrice > 500
-and ProductKey IN(
-    SELECT ProductKey
-    from FactInternetSales
-)
 ORDER BY (
     select SUM(OrderQuantity)
     from FactInternetSales as f
