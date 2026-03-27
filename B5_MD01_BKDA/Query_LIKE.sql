@@ -37,3 +37,22 @@ WHERE EmailAddress LIKE 's[^ae]%'
 
 --Exercise 6: Trong bảng DimCustomer, tìm tất cả khách hàng có EmailAddress bắt đầu bằng chữ "a", ký tự thứ hai không phải là "b" hoặc "c", và tiếp theo có ít nhất một ký tự bất kỳ.
 
+SELECT * 
+from DimCustomer
+WHERE EmailAddress LIKE 'a[^bc][a-z]%'
+
+--Exercise 7: Trong bảng DimEmployee, lấy danh sách nhân viên có LoginID bắt đầu bằng "adventure-", ký tự tiếp theo không phải là số. 
+
+SELECT * 
+from DimEmployee
+WHERE LoginID LIKE 'adventure-[^0-9]%'
+
+/*Exercise 8: Trong DimProduct, lọc sản phẩm có ProductAlternateKey: 
+  Bắt đầu bằng "B". 
+  Ký tự thứ ba không nằm trong khoảng 0–9 và a–f (tức là không phải số và không phải a–f). 
+  Ký tự thứ tư không phải chữ cái 
+  Tổng độ dài ProductAlternateKey đúng 7 ký tự*/
+
+SELECT * 
+from DimProduct
+WHERE ProductAlternateKey LIKE 'B_[^0-9a-f][^a-z]___'
